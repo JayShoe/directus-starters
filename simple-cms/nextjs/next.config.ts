@@ -17,10 +17,17 @@ const ContentSecurityPolicy = `
     frame-ancestors 'self' http://localhost:3000 ${process.env.NEXT_PUBLIC_DIRECTUS_URL};
 `;
 
+// ✅ Extract hostname safely
+let directusHostname = '';
+try {
+	directusHostname = new URL(process.env.NEXT_PUBLIC_DIRECTUS_URL || '').hostname;
+} catch (e) {
+	console.warn('Invalid NEXT_PUBLIC_DIRECTUS_URL:', process.env.NEXT_PUBLIC_DIRECTUS_URL);
+}
+
 const nextConfig: NextConfig = {
 	webpack: (config) => {
 		config.cache = false;
-
 		return config;
 	},
 	images: {
@@ -28,7 +35,7 @@ const nextConfig: NextConfig = {
 		remotePatterns: [
 			{
 				protocol: 'https',
-				hostname: process.env.NEXT_PUBLIC_DIRECTUS_URL?.split('//')[1] || '',
+				hostname: directusHostname,
 				pathname: '/assets/**',
 			},
 			{
