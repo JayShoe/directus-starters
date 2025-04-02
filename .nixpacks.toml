@@ -1,0 +1,2 @@
+[phases.setup]
+cmds = ["echo root does not build"]
