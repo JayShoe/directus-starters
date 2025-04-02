@@ -2,6 +2,7 @@
 	"name": "nextjs-15-starter-shadcn",
 	"version": "1.0.0",
 	"private": true,
+	"packageManager": "pnpm@8.15.5",
 	"website": "https://nextjs-15-starter-shadcn.vercel.app/",
 	"license": "MIT",
 	"scripts": {
@@ -14,7 +15,6 @@
 		"format": "prettier --write \"src/**/*.{js,jsx,ts,tsx}\""
 	},
 	"dependencies": {
-		"packageManager": "pnpm@8.15.5",
 		"@directus/sdk": "^18.0.3",
 		"@hookform/resolvers": "^3.10.0",
 		"@radix-ui/react-checkbox": "^1.1.3",
